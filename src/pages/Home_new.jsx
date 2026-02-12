@@ -643,7 +643,11 @@ const styles = {
     backdropFilter: "blur(10px)",
     borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
     zIndex: 2000,
-    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)"
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
+    "@media (max-width: 768px)": {
+      height: "70px",
+      padding: "0 15px"
+    }
   },
   logo: {
     margin: 0,
@@ -654,7 +658,10 @@ const styles = {
     fontWeight: "800",
     cursor: "pointer",
     letterSpacing: '1px',
-    transition: "all 0.3s ease"
+    transition: "all 0.3s ease",
+    "@media (max-width: 768px)": {
+      fontSize: "20px"
+    }
   },
   mobileMenuBtn: {
     background: "none",
@@ -725,9 +732,14 @@ const styles = {
   },
   opportunitiesGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "25px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "20px",
     width: "100%",
+    "@media (max-width: 768px)": {
+      gridTemplateColumns: "1fr",
+      gap: "16px"
+    }
+  },
   },
   opportunityCard: {
     background: "linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(236, 72, 153, 0.1))",
@@ -743,13 +755,22 @@ const styles = {
     height: "100%",
     position: "relative",
     overflow: "hidden",
-    boxShadow: "0 8px 32px rgba(6, 182, 212, 0.1)"
+    boxShadow: "0 8px 32px rgba(6, 182, 212, 0.1)",
+    "@media (max-width: 768px)": {
+      padding: "25px 20px",
+      borderRadius: "16px",
+      border: "2px solid rgba(6, 182, 212, 0.4)"
+    }
   },
   cardIcon: {
     fontSize: "60px",
     marginBottom: "20px",
     transition: "transform 0.4s ease",
-    display: "block"
+    display: "block",
+    "@media (max-width: 768px)": {
+      fontSize: "50px",
+      marginBottom: "15px"
+    }
   },
   cardTitle: {
     fontSize: "24px",
@@ -758,7 +779,11 @@ const styles = {
     WebkitTextFillColor: "transparent",
     marginBottom: "15px",
     fontWeight: "700",
-    letterSpacing: "0.5px"
+    letterSpacing: "0.5px",
+    "@media (max-width: 768px)": {
+      fontSize: "20px",
+      marginBottom: "12px"
+    }
   },
   cardDescription: {
     fontSize: "16px",
@@ -766,7 +791,12 @@ const styles = {
     marginBottom: "25px",
     flex: "1",
     lineHeight: "1.7",
-    fontWeight: "500"
+    fontWeight: "500",
+    "@media (max-width: 768px)": {
+      fontSize: "14px",
+      marginBottom: "20px",
+      lineHeight: "1.6"
+    }
   },
   cardButton: {
     padding: "12px 28px",
@@ -781,12 +811,20 @@ const styles = {
     marginTop: "auto",
     boxShadow: "0 6px 20px rgba(6, 182, 212, 0.3)",
     textTransform: "uppercase",
-    letterSpacing: "1px"
+    letterSpacing: "1px",
+    "@media (max-width: 768px)": {
+      padding: "10px 20px",
+      fontSize: "12px",
+      borderRadius: "8px"
+    }
   },
   contactSection: {
     padding: "100px 20px",
     background: "linear-gradient(135deg, rgba(15, 15, 35, 0.95), rgba(26, 26, 62, 0.95))",
     borderTop: "2px solid rgba(6, 182, 212, 0.2)",
+    "@media (max-width: 768px)": {
+      padding: "60px 15px"
+    }
   },
   contactContainer: {
     maxWidth: "1000px",

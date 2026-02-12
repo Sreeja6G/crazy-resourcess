@@ -262,16 +262,24 @@ button {
 
   .hero-title {
     font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
   }
 
   .section-title {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
   }
 
   .responsive-grid {
     grid-template-columns: 1fr;
-    /* Single column on mobile */
+    gap: 20px;
+  }
+
+  .card-base {
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .contact-form,
