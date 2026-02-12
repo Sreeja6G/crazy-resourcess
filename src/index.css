@@ -22,6 +22,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.2) transparent;
 }
 
 /* Reset & Base */
@@ -29,11 +33,35 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.2) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.2);
+  border-radius: 6px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.4);
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: scroll;
   width: 100%;
 }
 
@@ -150,9 +178,29 @@ button {
     background-attachment: scroll !important;
   }
 
-  html, body {
+  html {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
+  }
+
+  html::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.3);
+    border-radius: 4px;
+  }
+
+  body {
     overflow-x: hidden !important;
     width: 100% !important;
+    overflow-y: scroll;
   }
 
   * {
