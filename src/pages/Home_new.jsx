@@ -184,14 +184,6 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
               Sign Up
             </button>
           </div>
-
-          <button
-            style={styles.mobileMenuBtn}
-            onClick={() => setAuthMode("login"); setIsAuthOpen(true)}
-            aria-label="Login"
-          >
-            Login
-          </button>
         </div>
 
         {/* Mobile Menu Overlay - REMOVED to prevent layout shift */}
@@ -629,24 +621,6 @@ const styles = {
     transition: "all 0.3s ease",
     "@media (max-width: 768px)": {
       fontSize: "20px"
-    }
-  },
-  mobileMenuBtn: {
-    background: "linear-gradient(135deg, #06b6d4, #ec4899)",
-    border: "none",
-    color: "#fff",
-    fontSize: "12px",
-    cursor: "pointer",
-    padding: "8px 16px",
-    borderRadius: "6px",
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: "600",
-    transition: "all 0.3s ease",
-    "@media (max-width: 768px)": {
-      padding: "6px 12px",
-      fontSize: "11px"
     }
   },
   navLink: {
