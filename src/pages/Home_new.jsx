@@ -17,11 +17,9 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
 
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [authMode, setAuthMode] = useState("login"); // 'login' or 'register'
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (ref, navName) => {
     setActiveNav(navName);
-    setIsMenuOpen(false);
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -189,44 +187,14 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
 
           <button
             style={styles.mobileMenuBtn}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle Menu"
+            onClick={() => setAuthMode("login"); setIsAuthOpen(true)}
+            aria-label="Login"
           >
-            {isMenuOpen ? "✕" : "☰"}
+            Login
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        <div
-          className={`mobile-nav-overlay ${isMenuOpen ? "is-open" : ""}`}
-          style={{
-            ...styles.navLinks,
-            position: 'fixed',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            width: '300px',
-            background: 'rgba(10, 10, 22, 0.98)',
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '80px 40px',
-            gap: '25px',
-            transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-            transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-            zIndex: 1500,
-            boxShadow: '-10px 0 30px rgba(0,0,0,0.5)'
-          }}
-        >
-          <a style={{ ...styles.navLink, fontSize: '20px' }} onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}>Home</a>
-          <a style={{ ...styles.navLink, fontSize: '20px' }} onClick={() => { setIsMenuOpen(false); setCurrentPage("hackathons"); }}>Hackathons</a>
-          <a style={{ ...styles.navLink, fontSize: '20px' }} onClick={() => { setIsMenuOpen(false); setCurrentPage("internships"); }}>Internships</a>
-          <a style={{ ...styles.navLink, fontSize: '20px', opacity: 0.6 }} onClick={() => { setIsMenuOpen(false); alert("Cyber Security section is coming soon!"); }}>Cyber Security</a>
-          <a style={{ ...styles.navLink, fontSize: '20px' }} onClick={() => { setIsMenuOpen(false); scrollToSection(aboutRef, "about"); }}>About Us</a>
-          <a style={{ ...styles.navLink, fontSize: '20px' }} onClick={() => { setIsMenuOpen(false); scrollToSection(contactRef, "contact"); }}>Contact</a>
-          <hr style={{ width: '100%', borderColor: 'rgba(255,255,255,0.1)' }} />
-          <a style={{ ...styles.navLink, color: '#ec4899' }} onClick={() => { setIsMenuOpen(false); setAuthMode("login"); setIsAuthOpen(true); }}>Login</a>
-          <a style={{ ...styles.navLink, color: '#06b6d4' }} onClick={() => { setIsMenuOpen(false); setAuthMode("register"); setIsAuthOpen(true); }}>Register</a>
-        </div>
+        {/* Mobile Menu Overlay - REMOVED to prevent layout shift */}
       </nav>
 
       {/* Hero Section */}
@@ -664,15 +632,22 @@ const styles = {
     }
   },
   mobileMenuBtn: {
-    background: "none",
+    background: "linear-gradient(135deg, #06b6d4, #ec4899)",
     border: "none",
     color: "#fff",
-    fontSize: "28px",
+    fontSize: "12px",
     cursor: "pointer",
-    padding: "10px",
+    padding: "8px 16px",
+    borderRadius: "6px",
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    fontWeight: "600",
+    transition: "all 0.3s ease",
+    "@media (max-width: 768px)": {
+      padding: "6px 12px",
+      fontSize: "11px"
+    }
   },
   navLink: {
     color: "#cbd5e1",
