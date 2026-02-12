@@ -104,7 +104,7 @@ export default function FreeCourses({ setCurrentPage }) {
       margin: 0,
       padding: 0,
       background: "linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%)",
-      backgroundAttachment: "fixed",
+      backgroundAttachment: "scroll",
       minHeight: "100vh",
       width: "100%",
     },

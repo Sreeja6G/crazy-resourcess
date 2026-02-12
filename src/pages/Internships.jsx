@@ -957,7 +957,7 @@ const styles = {
   container: {
     padding: "20px min(60px, 5%)",
     background: "linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%)",
-    backgroundAttachment: "fixed",
+    backgroundAttachment: "scroll",
     minHeight: "100vh",
     color: "#f1f5f9",
   },
