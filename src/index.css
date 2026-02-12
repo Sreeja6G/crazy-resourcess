@@ -16,7 +16,7 @@
   color-scheme: dark;
   color: var(--text-light);
   background: linear-gradient(135deg, var(--primary-dark) 0%, #1a1a3e 100%);
-  background-attachment: fixed;
+  background-attachment: scroll;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,9 +32,11 @@
 body {
   margin: 0;
   padding: 0;
-  min-width: 320px;
+  min-width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 a {
@@ -146,6 +148,16 @@ button {
 
 /* Mobile & Large Tablet (max-width: 768px) */
 @media (max-width: 768px) {
+  :root {
+    background-attachment: scroll !important;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
   .section-padding {
     padding: 60px 15px;
   }
