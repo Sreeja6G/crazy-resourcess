@@ -173,8 +173,8 @@ const styles = {
   photoContainer: {
     position: "relative",
     width: "min(200px, 80%)",
-    height: "auto",
-    aspectRatio: "1",
+    height: "min(200px, 80%)",
+    aspectRatio: "1 / 1",
     borderRadius: "50%",
     overflow: "hidden",
     margin: "0 auto 20px",
@@ -184,6 +184,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(236, 72, 153, 0.1))",
+    flexShrink: 0,
   },
   photo: {
     width: "100%",
