@@ -96,7 +96,6 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
             <div style={styles.formGroup}>
               <label style={styles.label}>Email Address</label>
               <input
-                key="email-input"
                 type="email"
                 placeholder="your@email.com"
                 style={styles.input}
@@ -112,7 +111,7 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
           {authMode === "register" && (
             <div style={styles.formGroup}>
               <label style={styles.label}>Full Name</label>
-              <input key="name-input" type="text" placeholder="John Doe" style={styles.input} value={fullName} onChange={(e) => setFullName(e.target.value)} required autoComplete="name" />
+              <input type="text" placeholder="John Doe" style={styles.input} value={fullName} onChange={(e) => setFullName(e.target.value)} required autoComplete="name" />
             </div>
           )}
 
@@ -131,7 +130,6 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
                 )}
               </div>
               <input
-                key="password-input"
                 type="password"
                 placeholder="••••••••"
                 style={styles.input}
