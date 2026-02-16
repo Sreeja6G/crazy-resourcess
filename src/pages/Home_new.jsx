@@ -384,6 +384,20 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
               min-width: 44px;
               padding: clamp(10px, 2.5vw, 14px) clamp(14px, 3.5vw, 20px) !important;
             }
+
+            [style*="position: fixed"][style*="left: 0"][style*="top: 0"] {
+              justify-content: flex-end !important;
+              padding: 0 !important;
+            }
+
+            div[style*="maxWidth: 450px"] {
+              max-width: 100% !important;
+              width: 100% !important;
+              height: 100vh !important;
+              border-radius: 0 !important;
+              overflow-y: auto !important;
+              padding: clamp(20px, 3vw, 30px) !important;
+            }
           }
 
           * {
