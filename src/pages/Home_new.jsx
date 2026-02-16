@@ -331,6 +331,19 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
             flex-shrink: 0;
           }
           
+          .contact-info h3 {
+            color: #06b6d4;
+            margin: 0 0 5px 0;
+            font-size: clamp(14px, 3vw, 18px);
+            font-weight: 700;
+          }
+          
+          .contact-info p {
+            color: #cbd5e1;
+            margin: 0;
+            font-size: clamp(12px, 2.8vw, 14px);
+          }
+          
           @media (max-width: 480px) {
             * {
               box-sizing: border-box;
@@ -977,16 +990,18 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "15px",
-    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(236, 72, 153, 0.05))",
+    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(236, 72, 153, 0.12))",
     padding: "20px",
     borderRadius: "15px",
-    border: "2px solid rgba(6, 182, 212, 0.2)",
+    border: "2px solid rgba(6, 182, 212, 0.35)",
     transition: "all 0.3s ease",
-    boxShadow: "0 4px 15px rgba(6, 182, 212, 0.05)"
+    boxShadow: "0 4px 15px rgba(6, 182, 212, 0.1)",
+    color: "#f1f5f9",
   },
   contactIcon: {
     fontSize: "30px",
-    color: "#06b6d4"
+    color: "#06b6d4",
+    flexShrink: 0
   },
   socialLinks: {
     display: "flex",
