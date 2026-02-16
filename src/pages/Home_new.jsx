@@ -633,7 +633,6 @@ const styles = {
     borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
     zIndex: 2000,
     flexWrap: "wrap",
-  },
     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
     "@media (max-width: 768px)": {
       height: "70px",
