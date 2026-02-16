@@ -311,6 +311,20 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
             .responsive-grid > div:hover {
               transform: translateY(-8px);
             }
+            
+            body, html {
+              overflow-x: hidden;
+            }
+            
+            .section-padding {
+              padding: 20px !important;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .opportunity-card-animate {
+              animation: none;
+            }
           }
         `}
       </style>
@@ -587,9 +601,10 @@ const styles = {
     margin: 0,
     padding: 0,
     background: "linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%)",
-    backgroundAttachment: "scroll",
+    backgroundAttachment: "fixed",
     minHeight: "100vh",
     width: "100%",
+    overflow: "hidden",
   },
   navbar: {
     position: "sticky",
@@ -597,12 +612,14 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 5%",
-    height: "80px",
+    padding: "0 clamp(10px, 5%, 40px)",
+    height: "clamp(60px, 12vh, 80px)",
     background: "rgba(15, 15, 35, 0.95)",
     backdropFilter: "blur(10px)",
     borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
     zIndex: 2000,
+    flexWrap: "wrap",
+  },
     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
     "@media (max-width: 768px)": {
       height: "70px",
@@ -637,14 +654,14 @@ const styles = {
     borderBottomColor: "#06b6d4",
   },
   heroSection: {
-    background: "linear-gradient(135deg, rgba(15, 15, 35, 0.7), rgba(26, 26, 62, 0.7)), radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.1), transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.1), transparent 50%)",
+    background: "transparent",
     minHeight: "calc(100vh - 80px)",
     width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    overflow: "hidden",
+    overflow: "visible",
     margin: 0,
     padding: "0 20px",
     transition: "all 0.5s ease",

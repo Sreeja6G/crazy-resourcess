@@ -122,13 +122,13 @@ export default function Founders() {
 
 const styles = {
   section: {
-    padding: "60px min(60px, 5%)",
+    padding: "clamp(40px, 8vw, 60px) clamp(20px, 5vw, 60px)",
     textAlign: "center",
-    background: "linear-gradient(135deg, rgba(15, 15, 35, 0.7), rgba(26, 26, 62, 0.7))",
+    background: "transparent",
     borderTop: "1px solid rgba(6, 182, 212, 0.1)",
   },
   mainTitle: {
-    fontSize: "48px",
+    fontSize: "clamp(32px, 8vw, 48px)",
     fontWeight: "900",
     background: "linear-gradient(135deg, #06b6d4, #ec4899, #6366f1)",
     WebkitBackgroundClip: "text",
@@ -143,10 +143,11 @@ const styles = {
   },
   cards: {
     display: "flex",
-    gap: "40px",
+    gap: "clamp(20px, 5vw, 40px)",
     justifyContent: "center",
     flexWrap: "wrap",
     marginTop: "40px",
+    padding: "0 10px",
   },
   card: {
     width: "100%",
@@ -187,7 +188,7 @@ const styles = {
   photo: {
     width: "100%",
     height: "100%",
-    objectFit: "contain",
+    objectFit: "cover",
     objectPosition: "center",
     transition: "transform 0.3s ease, filter 0.3s ease",
     cursor: "pointer",
