@@ -259,7 +259,6 @@ const styles = {
   },
   highlightText: {
     fontSize: "clamp(13px, 3vw, 15px)",
-    fontSize: "15px",
     color: "#f1f5f9",
     fontWeight: "600",
     margin: "0",

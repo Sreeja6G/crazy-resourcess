@@ -857,14 +857,6 @@ const styles = {
     textTransform: "uppercase",
     letterSpacing: "1px",
     "@media (max-width: 768px)": {
-      padding: "12px 20px",
-      fontSize: "13px"
-    }
-    marginTop: "auto",
-    boxShadow: "0 6px 20px rgba(6, 182, 212, 0.3)",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-    "@media (max-width: 768px)": {
       padding: "10px 20px",
       fontSize: "12px",
       borderRadius: "8px"
