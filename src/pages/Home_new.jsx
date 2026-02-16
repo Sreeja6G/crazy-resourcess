@@ -663,9 +663,9 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
                 <div>
                   <h3>Connect</h3>
                   <div style={styles.socialLinks}>
-                    <span style={styles.socialIcon}>LinkedIn</span>
-                    <span style={styles.socialIcon}>Twitter</span>
-                    <span style={styles.socialIcon}>Instagram</span>
+                    <a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>LinkedIn</a>
+                    <a href="https://www.instagram.com/YOUR-PROFILE" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>Instagram</a>
+                    <a href="https://twitter.com/YOUR-PROFILE" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>Twitter</a>
                   </div>
                 </div>
               </div>
@@ -1030,7 +1030,9 @@ const styles = {
     textDecoration: "none",
     color: "#06b6d4",
     transition: "all 0.3s ease",
-    fontWeight: "600"
+    fontWeight: "600",
+    display: "inline-block",
+    padding: "5px 0"
   },
   footer: {
     background: "linear-gradient(135deg, #0a0a16, #0f0f23)",
