@@ -53,7 +53,7 @@ export default function Founders() {
         <div style={styles.card} data-animate>
           <div style={styles.photoContainer}>
             <img
-              src="/sai kiran.png"
+              src="/sai-kiran.png"
               alt="Sai Kiran"
               style={styles.photo}
             />
@@ -193,6 +193,7 @@ const styles = {
     objectPosition: "center",
     transition: "transform 0.3s ease, filter 0.3s ease",
     cursor: "pointer",
+    display: "block",
   },
   photoOverlay: {
     position: "absolute",
