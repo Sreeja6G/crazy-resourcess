@@ -663,9 +663,8 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
                 <div>
                   <h3>Connect</h3>
                   <div style={styles.socialLinks}>
-                    <a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>LinkedIn</a>
-                    <a href="https://www.instagram.com/YOUR-PROFILE" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>Instagram</a>
-                    <a href="https://twitter.com/YOUR-PROFILE" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>Twitter</a>
+                    <a href="https://www.linkedin.com/in/sreeja-reddy-1989a6290?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>LinkedIn</a>
+                    <a href="https://www.instagram.com/coding_with_sree?igsh=MWVmanIycGVneXQ2NA==" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>Instagram</a>
                   </div>
                 </div>
               </div>
