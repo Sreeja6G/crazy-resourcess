@@ -54,8 +54,10 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
   };
 
   const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
 
   const handleAuthSubmit = (e) => {
     e.preventDefault();
@@ -110,7 +112,7 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
           {authMode === "register" && (
             <div style={styles.formGroup}>
               <label style={styles.label}>Full Name</label>
-              <input key="name-input" type="text" placeholder="John Doe" style={styles.input} required autoComplete="name" />
+              <input key="name-input" type="text" placeholder="John Doe" style={styles.input} value={fullName} onChange={(e) => setFullName(e.target.value)} required autoComplete="name" />
             </div>
           )}
 
@@ -133,8 +135,8 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
                 type="password"
                 placeholder="••••••••"
                 style={styles.input}
-                value={authMode === "reset" ? newPassword : undefined}
-                onChange={(e) => authMode === "reset" && setNewPassword(e.target.value)}
+                value={authMode === "reset" ? newPassword : password}
+                onChange={(e) => authMode === "reset" ? setNewPassword(e.target.value) : setPassword(e.target.value)}
                 autoComplete="password"
                 required
               />
@@ -166,13 +168,13 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
 
         <div style={styles.authToggle}>
           {authMode === "login" ? (
-            <p style={{ color: '#cbd5e1' }}>Don't have an account? <span style={styles.toggleLink} onClick={() => setAuthMode("register")}>Sign Up</span></p>
+            <p style={{ color: '#cbd5e1' }}>Don't have an account? <span style={styles.toggleLink} onClick={() => { setAuthMode("register"); setEmail(""); setPassword(""); setFullName(""); }}>Sign Up</span></p>
           ) : (
             <p style={{ color: '#cbd5e1' }}>
               {(authMode === "register" || authMode === "forgot" || authMode === "reset") && (
                 <>
                   {authMode === "register" ? "Already have an account? " : "Go back to "}
-                  <span style={styles.toggleLink} onClick={() => setAuthMode("login")}>Login</span>
+                  <span style={styles.toggleLink} onClick={() => { setAuthMode("login"); setEmail(""); setPassword(""); setOtp(""); setNewPassword(""); setFullName(""); }}>Login</span>
                 </>
               )}
             </p>
@@ -202,10 +204,10 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
           </div>
 
           <div className="nav-actions" style={styles.desktopOnly}>
-            <a style={styles.navLink} onClick={() => { setAuthMode("login"); setIsAuthOpen(true); }}>Login</a>
+            <a style={styles.navLink} onClick={() => { setAuthMode("login"); setEmail(""); setPassword(""); setIsAuthOpen(true); }}>Login</a>
             <button
               style={{ ...styles.cardButton, padding: '8px 20px', fontSize: '12px' }}
-              onClick={() => { setAuthMode("register"); setIsAuthOpen(true); }}
+              onClick={() => { setAuthMode("register"); setEmail(""); setPassword(""); setFullName(""); setIsAuthOpen(true); }}
             >
               Sign Up
             </button>
