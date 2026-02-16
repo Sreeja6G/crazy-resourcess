@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import Hero from "./Hero";
 import Founders from "./Founders";
@@ -59,7 +59,7 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
 
-  const handleAuthSubmit = (e) => {
+  const handleAuthSubmit = useCallback((e) => {
     e.preventDefault();
     if (authMode === "forgot") {
       alert(`OTP successfully sent to your email: ${email}! (Simulation Mode)`);
@@ -71,7 +71,7 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
       alert(`${authMode === "login" ? "Login" : "Registration"} successful for ${email}!`);
       setIsAuthOpen(false);
     }
-  };
+  }, [authMode, email]);
 
   // Login/Register/Forgot Modal Component - Memoized to prevent re-renders
   const AuthModal = useMemo(
@@ -182,7 +182,7 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
         </div>
       </div>
     ),
-    [authMode, email, password, fullName, newPassword, otp, styles, handleAuthSubmit]
+    [authMode, email, password, fullName, newPassword, otp, handleAuthSubmit]
   );
 
   return (
