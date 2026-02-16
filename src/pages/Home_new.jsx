@@ -702,8 +702,8 @@ const styles = {
     transition: "all 0.5s ease",
   },
   opportunitiesSection: {
-    padding: "100px 20px",
-    background: "linear-gradient(135deg, rgba(15, 15, 35, 0.95), rgba(26, 26, 62, 0.95))",
+    padding: "clamp(50px, 10vw, 100px) clamp(15px, 4vw, 20px)",
+    background: "transparent",
     borderTop: "2px solid rgba(6, 182, 212, 0.2)",
     position: "relative",
     overflow: "hidden"
@@ -713,7 +713,7 @@ const styles = {
     margin: "0 auto",
   },
   opportunitiesTitle: {
-    fontSize: "52px",
+    fontSize: "clamp(32px, 8vw, 52px)",
     background: "linear-gradient(135deg, #06b6d4, #ec4899, #6366f1)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
@@ -733,19 +733,19 @@ const styles = {
   },
   opportunitiesGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "20px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(clamp(250px, 85vw, 280px), 1fr))",
+    gap: "clamp(15px, 3vw, 20px)",
     width: "100%",
     "@media (max-width: 768px)": {
       gridTemplateColumns: "1fr",
-      gap: "16px"
+      gap: "12px"
     }
   },
   opportunityCard: {
-    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(236, 72, 153, 0.1))",
-    border: "2px solid rgba(6, 182, 212, 0.3)",
-    borderRadius: "20px",
-    padding: "35px",
+    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(236, 72, 153, 0.12))",
+    border: "2px solid rgba(6, 182, 212, 0.35)",
+    borderRadius: "clamp(15px, 4vw, 20px)",
+    padding: "clamp(25px, 5vw, 35px)",
     textAlign: "center",
     transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
     cursor: "pointer",
@@ -799,8 +799,8 @@ const styles = {
     }
   },
   cardButton: {
-    padding: "12px 28px",
-    fontSize: "14px",
+    padding: "clamp(10px, 2.5vw, 12px) clamp(20px, 4vw, 28px)",
+    fontSize: "clamp(12px, 3vw, 14px)",
     fontWeight: "700",
     color: "#fff",
     background: "linear-gradient(135deg, #06b6d4, #ec4899)",
@@ -808,6 +808,14 @@ const styles = {
     borderRadius: "10px",
     cursor: "pointer",
     transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+    marginTop: "auto",
+    boxShadow: "0 6px 20px rgba(6, 182, 212, 0.3)",
+    textTransform: "uppercase",
+    letterSpacing: "1px",
+    "@media (max-width: 768px)": {
+      padding: "12px 20px",
+      fontSize: "13px"
+    }
     marginTop: "auto",
     boxShadow: "0 6px 20px rgba(6, 182, 212, 0.3)",
     textTransform: "uppercase",
