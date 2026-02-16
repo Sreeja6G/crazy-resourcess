@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import Hero from "./Hero";
 import Founders from "./Founders";
+
+// Initialize EmailJS (you need to replace with your actual credentials)
+emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
 
 export default function Home({ setCurrentPage, setSelectedInternship }) {
   const [activeNav, setActiveNav] = useState("home");
@@ -25,10 +29,28 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
     }
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    alert(`Thank you ${formData.name}! We have received your message.`);
-    setFormData({ name: "", email: "", message: "" });
+    
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        "YOUR_EMAIL_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_EMAIL_TEMPLATE_ID", // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "your-email@example.com" // Replace with recipient email
+        }
+      );
+      
+      alert(`Thank you ${formData.name}! Your message has been sent successfully.`);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      alert("Failed to send message. Please try again later.");
+    }
   };
 
   const [otp, setOtp] = useState("");
