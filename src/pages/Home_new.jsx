@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import emailjs from "@emailjs/browser";
 import Hero from "./Hero";
 import Founders from "./Founders";
@@ -73,113 +73,116 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
     }
   };
 
-  // Login/Register/Forgot Modal Component
-  const AuthModal = () => (
-    <div style={styles.modalOverlay} onClick={() => setIsAuthOpen(false)}>
-      <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button style={styles.modalClose} onClick={() => setIsAuthOpen(false)}>✕</button>
+  // Login/Register/Forgot Modal Component - Memoized to prevent re-renders
+  const AuthModal = useMemo(
+    () => () => (
+      <div style={styles.modalOverlay} onClick={() => setIsAuthOpen(false)}>
+        <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+          <button style={styles.modalClose} onClick={() => setIsAuthOpen(false)}>✕</button>
 
-        <h2 style={styles.modalTitle}>
-          {authMode === "login" && "Welcome Back"}
-          {authMode === "register" && "Create Account"}
-          {authMode === "forgot" && "Reset Request"}
-          {authMode === "reset" && "Verify OTP"}
-        </h2>
+          <h2 style={styles.modalTitle}>
+            {authMode === "login" && "Welcome Back"}
+            {authMode === "register" && "Create Account"}
+            {authMode === "forgot" && "Reset Request"}
+            {authMode === "reset" && "Verify OTP"}
+          </h2>
 
-        <p style={styles.modalSubtitle}>
-          {authMode === "forgot" ? "Enter your Mobile ID to receive a verification code." : "Manage your Crazy Resources account."}
-        </p>
+          <p style={styles.modalSubtitle}>
+            {authMode === "forgot" ? "Enter your Mobile ID to receive a verification code." : "Manage your Crazy Resources account."}
+          </p>
 
-        <form style={styles.authForm} onSubmit={handleAuthSubmit}>
-          {/* Mobile ID Field - Used in all except Reset */}
-          {authMode !== "reset" && (
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Email Address</label>
-              <input
-                type="email"
-                placeholder="your@email.com"
-                style={styles.input}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                autoComplete="email"
-                required
-              />
-            </div>
-          )}
-
-          {/* Registration Fields */}
-          {authMode === "register" && (
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Full Name</label>
-              <input type="text" placeholder="John Doe" style={styles.input} value={fullName} onChange={(e) => setFullName(e.target.value)} required autoComplete="name" />
-            </div>
-          )}
-
-          {/* Password Fields - Used in Login, Register, Reset */}
-          {(authMode === "login" || authMode === "register" || authMode === "reset") && (
-            <div style={styles.formGroup}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <label style={styles.label}>{authMode === "reset" ? "New Password" : "Password"}</label>
-                {authMode === "login" && (
-                  <span
-                    style={{ ...styles.toggleLink, fontSize: '12px', textDecoration: 'none' }}
-                    onClick={() => setAuthMode("forgot")}
-                  >
-                    Forgot Password?
-                  </span>
-                )}
+          <form style={styles.authForm} onSubmit={handleAuthSubmit}>
+            {/* Mobile ID Field - Used in all except Reset */}
+            {authMode !== "reset" && (
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Email Address</label>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  style={styles.input}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
+                  required
+                />
               </div>
-              <input
-                type="password"
-                placeholder="••••••••"
-                style={styles.input}
-                value={authMode === "reset" ? newPassword : password}
-                onChange={(e) => authMode === "reset" ? setNewPassword(e.target.value) : setPassword(e.target.value)}
-                autoComplete="password"
-                required
-              />
-            </div>
-          )}
+            )}
 
-          {/* OTP Field - Used only in Reset */}
-          {authMode === "reset" && (
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Enter OTP from Mobile</label>
-              <input
-                type="text"
-                placeholder="6-digit code"
-                style={styles.input}
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                required
-              />
-            </div>
-          )}
+            {/* Registration Fields */}
+            {authMode === "register" && (
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Full Name</label>
+                <input type="text" placeholder="John Doe" style={styles.input} value={fullName} onChange={(e) => setFullName(e.target.value)} required autoComplete="name" />
+              </div>
+            )}
 
-          <button type="submit" style={styles.submitBtn}>
-            {authMode === "login" && "Login Now"}
-            {authMode === "register" && "Register Now"}
-            {authMode === "forgot" && "Send OTP to Mobile"}
-            {authMode === "reset" && "Verify & Reset"}
-          </button>
-        </form>
+            {/* Password Fields - Used in Login, Register, Reset */}
+            {(authMode === "login" || authMode === "register" || authMode === "reset") && (
+              <div style={styles.formGroup}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <label style={styles.label}>{authMode === "reset" ? "New Password" : "Password"}</label>
+                  {authMode === "login" && (
+                    <span
+                      style={{ ...styles.toggleLink, fontSize: '12px', textDecoration: 'none' }}
+                      onClick={() => setAuthMode("forgot")}
+                    >
+                      Forgot Password?
+                    </span>
+                  )}
+                </div>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  style={styles.input}
+                  value={authMode === "reset" ? newPassword : password}
+                  onChange={(e) => authMode === "reset" ? setNewPassword(e.target.value) : setPassword(e.target.value)}
+                  autoComplete="password"
+                  required
+                />
+              </div>
+            )}
 
-        <div style={styles.authToggle}>
-          {authMode === "login" ? (
-            <p style={{ color: '#cbd5e1' }}>Don't have an account? <span style={styles.toggleLink} onClick={() => { setAuthMode("register"); setEmail(""); setPassword(""); setFullName(""); }}>Sign Up</span></p>
-          ) : (
-            <p style={{ color: '#cbd5e1' }}>
-              {(authMode === "register" || authMode === "forgot" || authMode === "reset") && (
-                <>
-                  {authMode === "register" ? "Already have an account? " : "Go back to "}
-                  <span style={styles.toggleLink} onClick={() => { setAuthMode("login"); setEmail(""); setPassword(""); setOtp(""); setNewPassword(""); setFullName(""); }}>Login</span>
-                </>
-              )}
-            </p>
-          )}
+            {/* OTP Field - Used only in Reset */}
+            {authMode === "reset" && (
+              <div style={styles.formGroup}>
+                <label style={styles.label}>Enter OTP from Mobile</label>
+                <input
+                  type="text"
+                  placeholder="6-digit code"
+                  style={styles.input}
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                  required
+                />
+              </div>
+            )}
+
+            <button type="submit" style={styles.submitBtn}>
+              {authMode === "login" && "Login Now"}
+              {authMode === "register" && "Register Now"}
+              {authMode === "forgot" && "Send OTP to Mobile"}
+              {authMode === "reset" && "Verify & Reset"}
+            </button>
+          </form>
+
+          <div style={styles.authToggle}>
+            {authMode === "login" ? (
+              <p style={{ color: '#cbd5e1' }}>Don't have an account? <span style={styles.toggleLink} onClick={() => { setAuthMode("register"); setEmail(""); setPassword(""); setFullName(""); }}>Sign Up</span></p>
+            ) : (
+              <p style={{ color: '#cbd5e1' }}>
+                {(authMode === "register" || authMode === "forgot" || authMode === "reset") && (
+                  <>
+                    {authMode === "register" ? "Already have an account? " : "Go back to "}
+                    <span style={styles.toggleLink} onClick={() => { setAuthMode("login"); setEmail(""); setPassword(""); setOtp(""); setNewPassword(""); setFullName(""); }}>Login</span>
+                  </>
+                )}
+              </p>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    ),
+    [authMode, email, password, fullName, newPassword, otp, styles, handleAuthSubmit]
   );
 
   return (
