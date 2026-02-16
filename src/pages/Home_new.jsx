@@ -55,18 +55,18 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
 
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [mobileId, setMobileId] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleAuthSubmit = (e) => {
     e.preventDefault();
     if (authMode === "forgot") {
-      alert(`OTP successfully sent to your Mobile ID: ${mobileId}! (Simulation Mode)`);
+      alert(`OTP successfully sent to your email: ${email}! (Simulation Mode)`);
       setAuthMode("reset");
     } else if (authMode === "reset") {
       alert("Password reset successfully! Please login with your new credentials.");
       setAuthMode("login");
     } else {
-      alert(`${authMode === "login" ? "Login" : "Registration"} successful for ${mobileId}!`);
+      alert(`${authMode === "login" ? "Login" : "Registration"} successful for ${email}!`);
       setIsAuthOpen(false);
     }
   };
@@ -92,13 +92,13 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
           {/* Mobile ID Field - Used in all except Reset */}
           {authMode !== "reset" && (
             <div style={styles.formGroup}>
-              <label style={styles.label}>Mobile ID (Phone)</label>
+              <label style={styles.label}>Email Address</label>
               <input
-                type="tel"
-                placeholder="+91 XXXXX XXXXX"
+                type="email"
+                placeholder="your@email.com"
                 style={styles.input}
-                value={mobileId}
-                onChange={(e) => setMobileId(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
