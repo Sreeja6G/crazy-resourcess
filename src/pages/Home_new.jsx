@@ -307,6 +307,17 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
             animation: pulse-live 2s infinite;
           }
 
+          * {
+            box-sizing: border-box;
+          }
+          
+          body, html {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+
           @media (max-width: 768px) {
             .responsive-grid > div:hover {
               transform: translateY(-8px);
@@ -605,6 +616,9 @@ const styles = {
     minHeight: "100vh",
     width: "100%",
     overflow: "hidden",
+    overflowY: "auto",
+    overflowX: "hidden",
+    position: "relative",
   },
   navbar: {
     position: "sticky",
