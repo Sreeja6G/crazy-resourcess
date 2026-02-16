@@ -314,11 +314,12 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
             display: flex;
             align-items: center;
             gap: 6px;
-            font-size: 10px;
+            font-size: clamp(9px, 2.5vw, 10px);
             font-weight: 800;
             color: #06b6d4;
             letter-spacing: 1px;
             margin-bottom: 10px;
+            justify-content: center;
           }
 
           .pulse-dot {
@@ -327,6 +328,49 @@ export default function Home({ setCurrentPage, setSelectedInternship }) {
             background: #06b6d4;
             border-radius: 50%;
             animation: pulse-live 2s infinite;
+            flex-shrink: 0;
+          }
+          
+          @media (max-width: 480px) {
+            * {
+              box-sizing: border-box;
+            }
+            
+            body, html {
+              margin: 0;
+              padding: 0;
+              width: 100%;
+              overflow-x: hidden;
+            }
+            
+            .section-title {
+              font-size: clamp(24px, 6vw, 32px) !important;
+              line-height: 1.3;
+              word-break: break-word;
+            }
+            
+            .section-padding {
+              padding: clamp(20px, 4vw, 30px) !important;
+            }
+            
+            .opportunity-card-animate {
+              padding: clamp(18px, 4vw, 25px) !important;
+            }
+            
+            .card-icon {
+              font-size: clamp(40px, 12vw, 60px) !important;
+            }
+            
+            input, textarea, button {
+              font-size: 16px;
+              border-radius: 8px;
+              min-height: 44px;
+            }
+            
+            button {
+              min-width: 44px;
+              padding: clamp(10px, 2.5vw, 14px) clamp(14px, 3.5vw, 20px) !important;
+            }
           }
 
           * {
@@ -859,50 +903,53 @@ const styles = {
   contactContent: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "50px",
+    gap: "clamp(30px, 5vw, 50px)",
     justifyContent: "center",
+    padding: "0 clamp(10px, 2vw, 20px)",
   },
   contactForm: {
-    flex: "1 1 400px",
-    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(236, 72, 153, 0.05))",
-    padding: "40px",
+    flex: "1 1 clamp(280px, 90vw, 400px)",
+    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(236, 72, 153, 0.08))",
+    padding: "clamp(25px, 5vw, 40px)",
     borderRadius: "20px",
     border: "2px solid rgba(6, 182, 212, 0.3)",
     boxShadow: "0 8px 32px rgba(6, 182, 212, 0.1)",
-    backdropFilter: "blur(10px)"
+    backdropFilter: "blur(10px)",
+    maxWidth: "100%"
   },
   formGroup: {
-    marginBottom: "25px",
+    marginBottom: "clamp(18px, 4vw, 25px)",
   },
   label: {
     display: "block",
-    marginBottom: "10px",
+    marginBottom: "8px",
     color: "#06b6d4",
     fontWeight: "600",
-    fontSize: "14px",
+    fontSize: "clamp(12px, 3vw, 14px)",
     textTransform: "uppercase",
-    letterSpacing: "1px"
+    letterSpacing: "0.5px"
   },
   input: {
     width: "100%",
-    padding: "14px 18px",
+    padding: "clamp(12px, 3vw, 14px) clamp(14px, 3.5vw, 18px)",
     borderRadius: "12px",
     border: "2px solid rgba(6, 182, 212, 0.2)",
     background: "rgba(30, 30, 60, 0.6)",
     color: "white",
-    fontSize: "15px",
+    fontSize: "16px",
     outline: "none",
     transition: "all 0.3s ease",
-    boxShadow: "inset 0 2px 10px rgba(0, 0, 0, 0.2)"
+    boxShadow: "inset 0 2px 10px rgba(0, 0, 0, 0.2)",
+    boxSizing: "border-box"
   },
   textarea: {
     width: "100%",
-    padding: "14px 18px",
+    padding: "clamp(12px, 3vw, 14px) clamp(14px, 3.5vw, 18px)",
     borderRadius: "12px",
     border: "2px solid rgba(6, 182, 212, 0.2)",
     background: "rgba(30, 30, 60, 0.6)",
     color: "white",
-    fontSize: "15px",
+    fontSize: "16px",
     outline: "none",
     resize: "vertical",
     minHeight: "150px",
@@ -912,18 +959,20 @@ const styles = {
   },
   submitBtn: {
     width: "100%",
-    padding: "16px",
+    padding: "clamp(14px, 3vw, 16px)",
     background: "linear-gradient(135deg, #06b6d4, #ec4899)",
     color: "white",
     border: "2px solid rgba(6, 182, 212, 0.5)",
     borderRadius: "12px",
-    fontSize: "16px",
+    fontSize: "clamp(14px, 3.5vw, 16px)",
     fontWeight: "800",
     cursor: "pointer",
     transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
     textTransform: 'uppercase',
-    letterSpacing: '2px',
-    boxShadow: "0 6px 25px rgba(6, 182, 212, 0.3)"
+    letterSpacing: '1px',
+    boxShadow: "0 6px 25px rgba(6, 182, 212, 0.3)",
+    minHeight: "44px",
+    boxSizing: "border-box"
   },
   contactInfo: {
     flex: "1 1 300px",

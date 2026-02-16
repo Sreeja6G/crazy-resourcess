@@ -136,10 +136,11 @@ const styles = {
     marginBottom: "10px",
   },
   subtitle: {
-    fontSize: "18px",
+    fontSize: "clamp(14px, 3.5vw, 18px)",
     color: "#cbd5e1",
-    marginBottom: "40px",
+    marginBottom: "clamp(25px, 5vw, 40px)",
     fontWeight: "500",
+    lineHeight: "1.6",
   },
   cards: {
     display: "flex",
@@ -236,7 +237,7 @@ const styles = {
     letterSpacing: "0.5px",
   },
   description: {
-    fontSize: "14px",
+    fontSize: "clamp(13px, 3vw, 14px)",
     lineHeight: "1.7",
     color: "#cbd5e1",
   },
@@ -244,12 +245,12 @@ const styles = {
     background: "linear-gradient(135deg, rgba(132, 204, 22, 0.2), rgba(6, 182, 212, 0.2))",
     border: "2px solid rgba(132, 204, 22, 0.4)",
     borderRadius: "12px",
-    padding: "15px",
+    padding: "clamp(12px, 3vw, 15px)",
     marginBottom: "16px",
     boxShadow: "0 6px 20px rgba(132, 204, 22, 0.15)",
   },
   highlightTitle: {
-    fontSize: "13px",
+    fontSize: "clamp(12px, 2.8vw, 13px)",
     fontWeight: "800",
     color: "#84cc16",
     margin: "0 0 8px 0",
@@ -257,6 +258,7 @@ const styles = {
     letterSpacing: "0.5px",
   },
   highlightText: {
+    fontSize: "clamp(13px, 3vw, 15px)",
     fontSize: "15px",
     color: "#f1f5f9",
     fontWeight: "600",

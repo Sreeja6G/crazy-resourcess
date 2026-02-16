@@ -385,8 +385,8 @@ export default function FreeCourses({ setCurrentPage }) {
               </a>
             ))
           ) : (
-            <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "40px", color: "#cbd5e1" }}>
-              <p style={{ fontSize: "18px" }}>No courses found. Try searching with different keywords!</p>
+            <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "clamp(25px, 5vw, 40px)", color: "#cbd5e1" }}>
+              <p style={{ fontSize: "clamp(14px, 3.5vw, 18px)", lineHeight: "1.6" }}>No courses found. Try searching with different keywords!</p>
             </div>
           )}
         </div>
