@@ -190,7 +190,7 @@ const styles = {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    objectPosition: "center",
+    objectPosition: "center top",
     transition: "transform 0.3s ease, filter 0.3s ease",
     cursor: "pointer",
     display: "block",
