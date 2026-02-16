@@ -689,7 +689,6 @@ const styles = {
       gap: "16px"
     }
   },
-  },
   opportunityCard: {
     background: "linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(236, 72, 153, 0.1))",
     border: "2px solid rgba(6, 182, 212, 0.3)",
